@@ -5,6 +5,9 @@ const ascii = require('./asciiArt.json')
 
 // Define configuration options
 const opts = {
+  connection: {
+    reconnect: true
+  },
   identity: {
     username: "xBaan",
     password: process.env.OAUTH_TOKEN
