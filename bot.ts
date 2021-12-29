@@ -2,6 +2,7 @@ const tmi = require('tmi.js');
 require('dotenv').config()
 
 const ascii = require('./asciiArt.json')
+const express = require('express');
 
 // Define configuration options
 const opts = {
@@ -61,3 +62,10 @@ function onMessageHandler (target: any, context: any, msg: any, self: any) {
 function onConnectedHandler (addr: string, port: string) {
   console.log(`* Connected to ${addr}:${port}`);
 }
+
+// THIS PART IS FOR HEROKU
+const app = express();
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+   console.log(`listening on ${port}`);
+});
