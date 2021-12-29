@@ -9,7 +9,8 @@ const opts = {
     username: "xBaan",
     password: process.env.OAUTH_TOKEN
   },
-  channels: ["xBaan", "shigure_vk"]
+  channels: ["xBaan"],
+  port: process.env.PORT || 5000
 };
 
 console.log(process.env.OAUTH_TOKEN)
