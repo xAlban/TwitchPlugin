@@ -38,24 +38,24 @@ function onMessageHandler (target: any, context: any, msg: any, self: any) {
 
   // If the command is known, let's execute it
   if (commandName === '!flip') {
-    let rand = Math.floor(Math.random() * 3) + 1
-    switch(rand){
-        case 1:
+    let rand = Math.random()
+    switch(true){
+        case rand <= 0.5:
             client.say(target, ascii.ASCII_SKYYART)
             break
-        case 2:
+        case rand < 0.9 && rand > 0.5:
             client.say(target, ascii.ASCII_1HEAD)
             break
-        case 3:
+        case rand >= 0.9:
             client.say(target, ascii.ASCII_ZAPATOS)
             break
         default:
             client.say(target, 'Default')
     }
-    console.log(`* Executed ${commandName} command`);
-  } else {
-    console.log(`* Unknown command ${commandName}`);
+    return console.log(`* Executed ${commandName} command`);
   }
+
+    return console.log(`* Unknown command ${commandName}`);
 }
 
 // Called every time the bot connects to Twitch chat
